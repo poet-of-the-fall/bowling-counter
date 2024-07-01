@@ -8,5 +8,5 @@
     <div class="cell"><mat-icon class="material-symbols-outlined">square</mat-icon></div>
 }
 @else {
-    <div class="cell">{{score()}}</div>
+    <div class="cell">{{(score() == 0) ? "-" : score()}}</div>
 }

@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Frame {{data.index + 1}}</h2>
+<mat-dialog-content>
+    <mat-form-field class="full-width">
+        <mat-label>First roll</mat-label>
+        <mat-select [formControl]="firstRoll" (selectionChange)="checkSelectionValues()">
+          @for (fsv of firstSelectionValues; track fsv) {
+            <mat-option [value]="fsv">{{fsv}}</mat-option>
+          }
+        </mat-select>
+    </mat-form-field>
+    @if (firstRoll.value && (firstRoll.value != "strike" || data.index == 9)) {
+        <mat-form-field class="full-width">
+            <mat-label>Second roll</mat-label>
+            <mat-select [formControl]="secondRoll" (selectionChange)="checkSelectionValues()">
+              @for (ssv of secondSelectionValues; track ssv) {
+                <mat-option [value]="ssv">{{ssv}}</mat-option>
+              }
+            </mat-select>
+        </mat-form-field>
+    }
+    @if (secondRoll.value && (firstRoll.value == "strike" || secondRoll.value == "strike" || secondRoll.value == "spare") && data.index == 9) {
+        <mat-form-field class="full-width">
+            <mat-label>Third roll</mat-label>
+            <mat-select [formControl]="thirdRoll" (selectionChange)="checkSelectionValues()">
+              @for (tsv of thirdSelectionValues; track tsv) {
+                <mat-option [value]="tsv">{{tsv}}</mat-option>
+              }
+            </mat-select>
+        </mat-form-field>
+    }
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="saveScore()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

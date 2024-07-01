@@ -1,22 +1,24 @@
 <div class="frame" (click)="inputScore()">
-    <div class="rolls">
-        @if(index() < 9) {
-            @if(frame().firstRoll != "strike") {
-                <app-score [score]="frame().firstRoll"></app-score>
-                <app-score [score]="frame().secondRoll"></app-score>
+    @if(frame()) {
+        <div class="rolls">
+            @if(index() < 9) {
+                @if(frame().firstRoll && frame().firstRoll != "strike") {
+                    <app-score [score]="frame().firstRoll"></app-score>
+                    <app-score [score]="frame().secondRoll"></app-score>
+                }
+                @else {
+                    <app-score [score]="undefined"></app-score>
+                    <app-score [score]="frame().firstRoll ?? 0"></app-score>
+                }
             }
             @else {
-                <app-score [score]="undefined"></app-score>
                 <app-score [score]="frame().firstRoll"></app-score>
+                <app-score [score]="frame().secondRoll"></app-score>
+                @if(frame().thirdRoll) {
+                    <app-score [score]="frame().thirdRoll"></app-score>
+                }
             }
-        }
-        @else {
-            <app-score [score]="frame().firstRoll"></app-score>
-            <app-score [score]="frame().secondRoll"></app-score>
-            @if(frame().thirdRoll) {
-                <app-score [score]="frame().thirdRoll"></app-score>
-            }
-        }
-    </div>
-    <div class="current-score">{{frame().currentScore}}</div>
+        </div>
+        <div class="current-score">{{frame().currentScore}}</div>
+    }
 </div>
