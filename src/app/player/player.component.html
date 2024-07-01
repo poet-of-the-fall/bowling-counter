@@ -1,0 +1,10 @@
+<mat-card appearance="outlined">   
+    <mat-card-content class="full-width">
+        <h3>{{player().name}}</h3>
+        <div class="score-row">
+            @for (frame of player().frames; track $index) {
+                <app-frame [frame]="frame" [index]="$index" (frameChange)="recalculateScore($event, $index)"></app-frame>
+            }
+        </div>
+    </mat-card-content>
+</mat-card>

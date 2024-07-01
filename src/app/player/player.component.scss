@@ -1,0 +1,9 @@
+:host {
+    width: 100%;
+}
+
+.score-row {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 32px);
+}

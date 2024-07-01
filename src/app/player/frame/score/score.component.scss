@@ -1,0 +1,17 @@
+:host {
+    width: 100%;
+}
+
+.cell {
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+    box-sizing: border-box;
+    width: 100%;
+    height: 26px;
+    text-align: center;
+}
+
+.invisible-cell {
+    height: 26px;
+}

@@ -1,0 +1,12 @@
+@if(score() == undefined) {
+    <div class="invisible-cell"></div>
+}
+@else if (score() == "spare") {
+    <div class="cell"><mat-icon class="material-symbols-outlined">signal_cellular_4_bar</mat-icon></div>
+}
+@else if (score() == "strike") {
+    <div class="cell"><mat-icon class="material-symbols-outlined">square</mat-icon></div>
+}
+@else {
+    <div class="cell">{{score()}}</div>
+}
