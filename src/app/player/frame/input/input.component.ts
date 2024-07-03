@@ -63,9 +63,9 @@ export class InputComponent {
       if (firstRoll == 'strike') {
         this.secondSelectionValues.push('strike');
       }
-      if (firstRoll != 'strike') {
-        this.secondSelectionValues.push('spare');
-      }
+    }
+    if (firstRoll != 'strike') {
+      this.secondSelectionValues.push('spare');
     }
 
     // Third Selection
